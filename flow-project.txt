@@ -1,0 +1,42 @@
+🎯 Feature Goal
+        ↓
+🧠 Requirement Analysis
+        ↓
+🏗️ Architecture Discussion
+        ↓
+🤔 Your Approach (even if wrong)
+        ↓
+⚖️ Tradeoff Discussion
+        ↓
+💻 Code Together
+        ↓
+🧪 Test
+        ↓
+♻️ Refactor
+        ↓
+📦 Git Commit
+        ↓
+📖 "What did we learn?"
+
+
+
+
+Architecture Discussion ✅
+        ↓
+CSS Architecture
+        ↓
+Global Styles
+        ↓
+Desktop Layout
+        ↓
+Wallpaper
+        ↓
+Taskbar Layout
+        ↓
+Live Clock
+        ↓
+Testing
+        ↓
+Refactor
+        ↓
+Git Commit

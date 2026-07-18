@@ -1,0 +1,22 @@
+@import url("./desktop.css");
+@import url("./taskbar.css");
+@import url("./windows.css");
+@import url("./apps.css");
+
+
+
+/* ===== CSS Reset ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Global Styles ===== */
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
