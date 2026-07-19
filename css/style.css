@@ -2,6 +2,7 @@
 @import url("./taskbar.css");
 @import url("./windows.css");
 @import url("./apps.css");
+@import url("./startmenu.css");
 
 
 
@@ -19,4 +20,10 @@ body {
     height: 100vh;
     overflow: hidden;
     font-family: Arial, Helvetica, sans-serif;
+}
+.hidden{
+    display:none;
+}
+body{
+    background:red !important;
 }
