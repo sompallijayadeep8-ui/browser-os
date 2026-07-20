@@ -1,0 +1,59 @@
+.app-window{
+
+    position:absolute;
+
+    top:120px;
+
+    left:250px;
+
+    width:420px;
+
+    height:280px;
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+.window-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px 18px;
+
+    background:#1e293b;
+
+    color:white;
+
+}
+.window-content{
+
+    padding:20px;
+
+}
+.close-btn{
+
+    border:none;
+
+    background:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+.close-btn:hover{
+
+    color:red;
+
+}

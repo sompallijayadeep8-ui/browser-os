@@ -1,6 +1,5 @@
 #start-menu{
     position: absolute;
-
     bottom: 70px;
     left: 10px;
 
@@ -8,12 +7,23 @@
     height: 360px;
 
     background: rgba(30,41,59,0.95);
-
     border-radius: 12px;
-
     padding: 20px;
-
     color: white;
-
     backdrop-filter: blur(10px);
+
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+#start-menu.show{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
 }
