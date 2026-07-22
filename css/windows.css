@@ -57,3 +57,23 @@
     color:red;
 
 }
+.window-controls{
+
+    display:flex;
+
+    gap:6px;
+
+}
+
+.minimize-btn,
+.close-btn{
+
+    width:28px;
+
+    height:28px;
+
+    border:none;
+
+    cursor:pointer;
+
+}
