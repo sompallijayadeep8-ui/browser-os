@@ -32,6 +32,9 @@ export function openWindow(app){
 
                <button class="minimize-btn">—</button>
 
+                <button class="maximize-btn">▢</button>
+
+
             <button class="close-btn">✕</button>
             </div>
 
@@ -66,15 +69,19 @@ export function openWindow(app){
         windowElement.remove();
 
     });
-    const minimizeButton = windowElement.querySelector(".minimize-btn");
-    minimizeButton.addEventListener("click", function(){
+    const maximizeButton =windowElement.querySelector(".maximize-btn");
 
-    windowElement.style.display = "none";
 
-    runningApp.minimized = true;
+    maximizeButton.addEventListener("click",function(){
+        toggleMaximize();
+    });
+    const header = windowElement.querySelector(".window-header");
+
+  header.addEventListener("dblclick", function(){
+
+    toggleMaximize();
 
 });
-
 
     enableDragging(windowElement);
     const runningApp = {
@@ -88,6 +95,10 @@ export function openWindow(app){
     taskbarButton,
 
     minimized: false,
+
+    maximized: false,
+
+    previousState:null,
 
     active: true
 
@@ -106,6 +117,42 @@ taskbarButton.addEventListener("click", function(){
     bringToFront(runningApp);
 
 });
+
+function toggleMaximize(){
+         if(runningApp.maximized){
+            windowElement.style.left = runningApp.previousState.left;
+           windowElement.style.top = runningApp.previousState.top;
+           windowElement.style.width = runningApp.previousState.width;
+           windowElement.style.height = runningApp.previousState.height;
+           runningApp.maximized = false;
+        }
+    else{
+        
+        runningApp.previousState = {
+
+    left: windowElement.style.left,
+
+    top: windowElement.style.top,
+
+    width: windowElement.style.width,
+
+    height: windowElement.style.height
+
+};
+   windowElement.style.left = "0px";
+
+   windowElement.style.top = "0px";
+
+   windowElement.style.width = workspace.clientWidth+ "px";
+
+   windowElement.style.height = workspace.clientHeight+ "px";
+
+   console.log(workspace.clientWidth);
+console.log(workspace.clientHeight);
+
+   runningApp.maximized = true;
+    }
+    };
 }
      function bringToFront(runningApp){
 

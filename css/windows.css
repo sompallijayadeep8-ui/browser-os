@@ -16,7 +16,28 @@
 
     overflow:hidden;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
+    
+    animation:windowOpen .18s ease;
+
+}
+@keyframes windowOpen{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
 
 }
 .window-header{
@@ -28,6 +49,8 @@
     align-items:center;
 
     padding:12px 18px;
+
+    cursor: move;
 
     background:#1e293b;
 
@@ -61,19 +84,60 @@
 
     display:flex;
 
-    gap:6px;
+    align-items: center;
+
+    gap:4px;
 
 }
+.window-controls button{
 
-.minimize-btn,
-.close-btn{
+    width:30px;
 
-    width:28px;
-
-    height:28px;
+    height:30px;
 
     border:none;
 
+    border-radius:6px;
+
+    background:transparent;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
     cursor:pointer;
+
+    transition:.2s;
+
+    font-size:16px;
+
+}
+.window-controls button:hover{
+
+    background:rgba(255,255,255,.15);
+
+}
+.close-btn:hover{
+
+    background:#e81123;
+
+
+}
+#workspace{
+
+    position:absolute;
+
+    inset:0 0 60px 0;
+
+    pointer-events:none;
+
+}
+.app-window{
+
+    pointer-events:auto;
 
 }
