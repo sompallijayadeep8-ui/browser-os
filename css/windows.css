@@ -141,3 +141,20 @@
     pointer-events:auto;
 
 }
+.resize-handle{
+
+    position:absolute;
+
+    width:16px;
+
+    height:16px;
+
+    right:0;
+
+    bottom:0;
+
+    cursor:nwse-resize;
+
+   
+
+}

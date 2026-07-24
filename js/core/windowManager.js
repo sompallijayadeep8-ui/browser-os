@@ -46,6 +46,8 @@ export function openWindow(app){
 
         </div>
 
+        <div class="resize-handle"></div>
+
     `;
 
     workspace.appendChild(windowElement);
@@ -69,6 +71,64 @@ export function openWindow(app){
         windowElement.remove();
 
     });
+
+    const resizeHandle = windowElement.querySelector(".resize-handle");
+
+let isResizing = false;
+
+resizeHandle.addEventListener("mousedown", function(event){
+
+     console.log("Resize Started");
+
+     if(runningApp.maximized){
+        return;
+     }
+
+
+    isResizing = true;
+
+});
+
+
+document.addEventListener("mousemove", function(event){
+
+    if(!isResizing) return;
+
+    // Resize logic comes here
+   const MIN_WIDTH = 250;
+   const MIN_HEIGHT = 100;
+
+     const newWidth = event.clientX - windowElement.offsetLeft;
+
+    const newHeight = event.clientY - windowElement.offsetTop;
+
+if(newWidth >= MIN_WIDTH && newHeight >= MIN_HEIGHT){
+
+    windowElement.style.width  = newWidth + "px";
+    windowElement.style.height = newHeight + "px";
+}
+
+});
+
+
+document.addEventListener("mouseup", function(){
+
+    isResizing = false;
+
+});
+
+
+    const minimizeButton = windowElement.querySelector(".minimize-btn");
+
+      minimizeButton.addEventListener("click", function () {
+
+    windowElement.style.display = "none";
+
+    runningApp.minimized = true;
+
+});
+
+
     const maximizeButton =windowElement.querySelector(".maximize-btn");
 
 
