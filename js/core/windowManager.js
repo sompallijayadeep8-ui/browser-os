@@ -42,7 +42,7 @@ export function openWindow(app){
 
         <div class="window-content">
 
-            Welcome to ${app.name}
+           
 
         </div>
 
@@ -51,13 +51,21 @@ export function openWindow(app){
     `;
 
     workspace.appendChild(windowElement);
+
+    const windowContent = windowElement.querySelector(".window-content");
+
+    if (app.content) {
+    windowContent.appendChild(app.content());
+}
+
+
     const taskbarButton = addTaskbarApp(app);
     windowElement.addEventListener("mousedown", function(){
 
      bringToFront(runningApp);
 
 });
-
+    
 
     const closeButton = windowElement.querySelector(".close-btn");
 

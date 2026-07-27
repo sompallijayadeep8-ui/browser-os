@@ -1,3 +1,6 @@
+import { createCalculator } from "./calculator.js";
+
+
 export const apps = [
     {
         id: "notes",
@@ -7,7 +10,8 @@ export const apps = [
     {
         id: "calculator",
         name: "Calculator",
-        icon: "🧮"
+        icon: "🧮",
+        content: createCalculator
     },
     {
         id: "browser",
