@@ -33,18 +33,32 @@ export function createNotes() {
         </div>
 
     `;
-    let notesData = [];
+    let notesData =
+    JSON.parse(
+        localStorage.getItem("browser-os-notes")
+    ) || [];
 
-    let selectedNoteId = null;
+let selectedNoteId =
+    notesData.length
+        ? notesData[0].id
+        : null;
 
-    const newNoteBtn = notes.querySelector(".new-note-btn");
-     const notesList = notes.querySelector(".notes-list");
+const newNoteBtn = notes.querySelector(".new-note-btn");
+const notesList = notes.querySelector(".notes-list");
 
-     const titleInput = notes.querySelector(".note-title");
-     const contentInput = notes.querySelector(".note-content");
+const titleInput = notes.querySelector(".note-title");
+const contentInput = notes.querySelector(".note-content");
 
+function saveNotes() {
 
-     function renderNotes(){
+    localStorage.setItem(
+        "browser-os-notes",
+        JSON.stringify(notesData)
+    );
+
+}
+
+function renderNotes() {
 
     notesList.innerHTML = "";
 
@@ -58,10 +72,10 @@ export function createNotes() {
 
         noteItem.innerHTML = `
             <h4>${note.title || "Untitled"}</h4>
-            <button class="delete-note">🗑</button>
+            <button class="delete-note">🗑️</button>
         `;
 
-        if(note.id === selectedNoteId){
+        if (note.id === selectedNoteId) {
             noteItem.classList.add("active");
         }
 
@@ -69,8 +83,25 @@ export function createNotes() {
 
     });
 
+    const selectedNote = notesData.find(
+        note => note.id === selectedNoteId
+    );
+
+    if (selectedNote) {
+
+        titleInput.value = selectedNote.title;
+        contentInput.value = selectedNote.content;
+
+    } else {
+
+        titleInput.value = "";
+        contentInput.value = "";
+
+    }
+
 }
-  newNoteBtn.addEventListener("click", () => {
+
+newNoteBtn.addEventListener("click", () => {
 
     const note = {
 
@@ -88,40 +119,38 @@ export function createNotes() {
 
     renderNotes();
 
-    titleInput.value = "";
-
-    contentInput.value = "";
+    saveNotes();
 
     titleInput.focus();
 
 });
-notesList.addEventListener("click",(event)=>{
+
+notesList.addEventListener("click", (event) => {
 
     const noteItem = event.target.closest(".note-item");
 
-    if(!noteItem) return;
+    if (!noteItem) return;
 
     const id = Number(noteItem.dataset.id);
 
-   
+    if (event.target.classList.contains("delete-note")) {
 
-    const note = notesData.find(note => note.id === id);
+        notesData = notesData.filter(
+            note => note.id !== id
+        );
 
-    if(event.target.classList.contains("delete-note")){
+        if (selectedNoteId === id) {
 
-        notesData = notesData.filter(note => note.id !== id);
-
-        if(selectedNoteId === id){
-
-            selectedNoteId = null;
-
-            titleInput.value = "";
-
-            contentInput.value = "";
+            selectedNoteId =
+                notesData.length
+                    ? notesData[0].id
+                    : null;
 
         }
 
         renderNotes();
+
+        saveNotes();
 
         return;
 
@@ -129,14 +158,41 @@ notesList.addEventListener("click",(event)=>{
 
     selectedNoteId = id;
 
-    titleInput.value = note.title;
-
-    contentInput.value = note.content;
-
     renderNotes();
 
 });
 
-    return notes;
+titleInput.addEventListener("input", () => {
 
+    const note = notesData.find(
+        note => note.id === selectedNoteId
+    );
+
+    if (!note) return;
+
+    note.title = titleInput.value;
+
+    renderNotes();
+
+    saveNotes();
+
+});
+
+contentInput.addEventListener("input", () => {
+
+    const note = notesData.find(
+        note => note.id === selectedNoteId
+    );
+
+    if (!note) return;
+
+    note.content = contentInput.value;
+
+    saveNotes();
+
+});
+
+renderNotes();
+
+return notes;
 }
