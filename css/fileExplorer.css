@@ -1,0 +1,407 @@
+.file-explorer{
+
+    display:flex;
+
+    width:100%;
+
+    height:100%;
+
+    background:#0f172a;
+
+    color:white;
+
+}
+.explorer-sidebar{
+
+    width:190px;
+
+    background:#1e293b;
+
+    border-right:1px solid #334155;
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:15px;
+
+    gap:8px;
+
+}
+.sidebar-item{
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+}
+.sidebar-item:hover{
+
+    background:#334155;
+
+}
+.sidebar-item.active{
+
+    background:#2563eb;
+
+}
+.explorer-main{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+.explorer-toolbar{
+
+    height:60px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap: 12px;
+
+    padding:0 18px;
+   
+    border-bottom:1px solid #334155;
+
+    background:#111827;
+
+}
+.explorer-toolbar button{
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    background:#334155;
+
+    color:white;
+
+    transition:.2s;
+
+}
+.explorer-toolbar button:hover{
+
+    background:#475569;
+
+}
+.explorer-toolbar span{
+
+    margin-left:15px;
+
+    font-weight:600;
+
+    color:#cbd5e1;
+
+}
+.explorer-grid{
+
+    flex:1;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,110px);
+
+    justify-content: flex-start;
+
+    gap:20px;
+
+    padding:20px;
+
+    overflow-y:auto;
+
+}
+
+.file-card{
+
+    width:110px;
+
+    height:100px;
+
+    border-radius:12px;
+
+    background:#1e293b;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.file-card:hover{
+
+    transform:translateY(-3px);
+
+    background:#334155;
+
+}
+.file-card{
+
+    font-size:42px;
+
+}
+.file-card p{
+
+    margin:0;
+
+    font-size:13px;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+    width:90px;
+
+}
+.explorer-grid::-webkit-scrollbar{
+
+    width:8px;
+
+}
+.explorer-grid::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+.explorer-grid::-webkit-scrollbar-thumb{
+
+    background:#475569;
+
+    border-radius:20px;
+
+}
+.explorer-grid::-webkit-scrollbar-thumb:hover{
+
+    background:#64748b;
+
+}
+.file-icon{
+
+    font-size:40px;
+
+    margin-bottom:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.explorer-path{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-left:15px;
+
+}
+
+.breadcrumb{
+
+    cursor:pointer;
+
+    color:#cbd5e1;
+
+    transition:.2s;
+
+    font-weight:600;
+
+}
+
+.breadcrumb:hover{
+
+    color:#60a5fa;
+
+}
+.explorer-search{
+
+    margin-left:auto;
+
+    width:220px;
+
+    padding:10px 14px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:10px;
+
+    background:#334155;
+
+    color:white;
+
+}
+.explorer-search::placeholder{
+
+    color:#94a3b8;
+
+}
+.new-folder-btn{
+
+    margin-left:10px;
+
+    padding:10px 16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.new-folder-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.explorer-search{
+
+    margin-left:auto;
+
+    width:240px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:0 15px;
+
+    background:#1e293b;
+
+    color:white;
+
+}
+
+.rename-btn{
+
+    height:40px;
+
+    padding:0 16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#475569;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+.rename-btn:hover{
+
+    background:#64748b;
+
+}
+
+.file-card.selected{
+
+    background:#2563eb;
+
+    border:1px solid #60a5fa;
+
+}
+
+
+.delete-btn{
+
+    height:40px;
+
+    padding:0 16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#dc2626;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+.delete-btn:hover{
+
+    background:#b91c1c;
+
+}
+
+.empty-folder{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#94a3b8;
+
+    margin-top:100px;
+
+}
+
+.empty-icon{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+}

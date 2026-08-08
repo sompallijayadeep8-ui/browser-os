@@ -4,7 +4,8 @@
 @import url("./apps.css");
 @import url("./startmenu.css");
 @import "./notes.css";
-
+@import "./fileExplorer.css";
+@import "./settings.css";
 
 
 /* ===== CSS Reset ===== */

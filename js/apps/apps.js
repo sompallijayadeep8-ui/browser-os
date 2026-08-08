@@ -1,5 +1,7 @@
 import { createCalculator } from "./calculator.js";
 import { createNotes } from "./notes.js";
+import { createFileExplorer } from "./fileExplorer.js";
+import { createSettings } from "./settings.js";
 
 
 export const apps = [
@@ -29,5 +31,24 @@ export const apps = [
         id: "recycle-bin",
         name: "Recycle Bin",
         icon: "🗑️"
-    }
+    },
+
+    {
+    id:"file-explorer",
+
+    name:"File Explorer",
+
+    icon:"📁",
+
+    content:createFileExplorer
+},
+
+
+{
+    id: "settings",
+    name: "Settings",
+    icon: "⚙️",
+    content: createSettings
+}
+
 ];
